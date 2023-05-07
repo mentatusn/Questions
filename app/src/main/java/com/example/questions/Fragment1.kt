@@ -39,7 +39,10 @@ class Fragment1 : Fragment() {
     ): View {
         Log.d("testLife", "onCreateView fragment 1")
 
-        viewModel = ViewModelProvider(this).get(Fragment1ViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(Fragment1ViewModel::class.java)
+        viewModel = ViewModelProvider(this,
+            Fragment1ViewModel.Fragment1ViewModelFactory(requireActivity().application)
+        ).get(Fragment1ViewModel::class.java)
         viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
 
         _binding = Fragment1Binding.inflate(layoutInflater)
