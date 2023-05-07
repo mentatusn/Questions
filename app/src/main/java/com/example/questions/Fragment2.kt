@@ -21,6 +21,7 @@ class Fragment2: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("testLife", "onCreate fragment 2")
+        
         super.onCreate(savedInstanceState)
     }
 
