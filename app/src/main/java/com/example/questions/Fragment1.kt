@@ -31,6 +31,7 @@ class Fragment1 : Fragment() {
         Log.d("testLife", "onViewCreated fragment 1" )
         super.onViewCreated(view, savedInstanceState)
     }
+    
 
     override fun onCreateView(
         inflater: LayoutInflater,
