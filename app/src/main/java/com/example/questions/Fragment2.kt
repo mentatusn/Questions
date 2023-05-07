@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.questions.databinding.Fragment2Binding
 
 class Fragment2: Fragment() {
 
     private var _binding: Fragment2Binding? = null
     val binding: Fragment2Binding get() = _binding!!
+
+    private lateinit var viewModel: Fragment1ViewModel
 
     override fun onAttach(context: Context) {
         Log.d("testLife", "onAttach fragment 2")
@@ -40,6 +43,11 @@ class Fragment2: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d("testLife", "onViewCreated fragment 2")
         super.onViewCreated(view, savedInstanceState)
+
+
+        /*viewModel = ViewModelProvider(requireActivity(),
+            Fragment1ViewModel.Fragment1ViewModelFactory(requireActivity().application)
+        ).get(Fragment1ViewModel::class.java)*/
     }
 
     override fun onStart() {

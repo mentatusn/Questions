@@ -40,16 +40,22 @@ class Fragment1 : Fragment() {
         Log.d("testLife", "onCreateView fragment 1")
 
         //viewModel = ViewModelProvider(this).get(Fragment1ViewModel::class.java)
-        viewModel = ViewModelProvider(this,
+        viewModel = ViewModelProvider(requireActivity(),
             Fragment1ViewModel.Fragment1ViewModelFactory(requireActivity().application)
         ).get(Fragment1ViewModel::class.java)
-        viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
+        viewModel.getLiveData().observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { state ->
+                renderData(state)
+            }
+        }
 
         _binding = Fragment1Binding.inflate(layoutInflater)
 
         binding.frg1Button1.setOnClickListener { viewModel.onEvent1() }
         binding.frg1Button2.setOnClickListener { viewModel.onEvent2() }
-        binding.frg1OpenFrg2.setOnClickListener { openFragment2() }
+        binding.frg1OpenFrg2.setOnClickListener {
+            openFragment2()
+        }
         return binding.root
     }
 
