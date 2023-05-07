@@ -46,6 +46,7 @@ class Fragment1 : Fragment() {
         ).get(Fragment1ViewModel::class.java)
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
+            val sedgf = viewModel.liveData2
         }
 
         _binding = Fragment1Binding.inflate(layoutInflater)

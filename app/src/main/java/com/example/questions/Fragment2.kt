@@ -24,6 +24,10 @@ class Fragment2: Fragment() {
         super.onCreate(savedInstanceState)
     }
 
+    fun foo(i:Int):Int{
+        return  i/3
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

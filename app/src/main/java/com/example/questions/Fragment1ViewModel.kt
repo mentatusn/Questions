@@ -12,7 +12,7 @@ class Fragment1ViewModel(
     application: Application,
     private val liveData: MutableLiveData<Fragment1State> = MutableLiveData()
 ) : AndroidViewModel(application) {
-
+    val liveData2: MutableLiveData<Fragment1State> = MutableLiveData()
     fun getLiveData() = liveData
 
     fun onEvent1() {
