@@ -38,8 +38,10 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragmentContainer, Fragment1())
-            .addToBackStack(null)
+            .addToBackStack("my_fragment_tag")
             .commit()
+
+        val fragment = supportFragmentManager.findFragmentByTag("my_fragment_tag")
 
     }
 
